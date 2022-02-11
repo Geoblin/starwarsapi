@@ -1,0 +1,10 @@
+<!--Interpolation för att få ut character namnen och och knapparna för light och dark-->
+<a style="cursor: pointer" class="list-group-item">
+  <h4 class="list-group-item-heading">{{ character.name }}</h4>
+  <div>
+    <!--Clicklisterner för att hämta funktionen onAssign som kallar på onSidechosen.-->
+    <button class="btn btn-primary" (click)="onAssign('light')">Light</button>
+    <button class="btn btn-danger" (click)="onAssign('dark')">Dark</button>
+  </div>
+</a>
+

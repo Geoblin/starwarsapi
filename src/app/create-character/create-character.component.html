@@ -1,0 +1,28 @@
+<!--Vi använder action="" för att skicka formen med angular. ngSubmit bindar formen och hindrar default request till serven via submit.
+#form gör upp en lokal ref med värdena från ngForm. Vi passar värdet från form in i får onSubmit() metod för att vi ska kunna skicka vidare vädet av formen till vår ts kod-->
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+ <div class="form-group">
+  <label for="name">Character Name</label>
+  <input type="text"
+  id="name" name="name"
+  class="form-control"
+  ngModel
+  required
+  #nameCtrl="ngModel">
+  <!--Med ngIf kan vi se om nameCtrl är invalid och om det är det så skickar vi det till domen och vårt span-->
+  <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span>
+</div>
+
+<div class="form-group">
+  <label for="side">Choose Side</label>
+  <select name="side" id="side" class="form-control" ngModel> 
+    <!--med ngFor loopar vi igenom arrayen avaiableslides objects och bindar värdet till option.value.-->
+    <option *ngFor="let option of availableSides" [value]="option.value">
+      {{ option.display }} 
+      <!--^ displayar till användaren-->
+    </option>
+  </select>
+</div>
+<button class="btn btn-primary" type="submit" [disabled]="form.invalid">Add Character</button> 
+<!--Disablar knappen om formet är invalid-->
+</form>

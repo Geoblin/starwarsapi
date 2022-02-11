@@ -1,0 +1,11 @@
+button {
+  margin-top: 10px;
+}
+
+select {
+  cursor:pointer;
+}
+/* Inputfälten som har invalid och touched classerna får en varning på sig när de inte är i fyllda */
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
